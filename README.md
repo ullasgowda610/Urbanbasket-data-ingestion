@@ -27,13 +27,7 @@ To propose an ingestion architecture that matches the ingestion method to each s
 
 The three ingestion paths converge into a common **Raw / Landing Area**, followed by validation and change handling before trusted data reaches the central platform.
 
-## 5. Proposed Ingestion Flow
-
-![UrbanBasket Data Ingestion Architecture](architecture/urbanbasket-ingestion-flow.png)
-
-**High-level flow:** Sources → Ingestion → Raw/Landing → Validation → Change Handling → Central Data Platform → Business/Analytics
-
-## 6. Handling Data Problems
+## 5. Handling Data Problems
 
 ### Late-arriving data
 Use the relevant **business/event date** together with the ingestion timestamp so late information can be associated with the correct business period.
@@ -51,6 +45,12 @@ Use change detection and an **upsert** approach:
 
 ### Unchanged data
 Use **incremental processing** so only new or changed information is processed. Unchanged information is skipped.
+
+## 6. Proposed Ingestion Flow
+
+![UrbanBasket Data Ingestion Architecture](Urbanbasket-architecture.png)
+
+**High-level flow:** Sources → Ingestion → Raw/Landing → Validation → Change Handling → Central Data Platform → Business/Analytics
 
 ## 7. Why This Architecture?
 1. Different sources have different freshness requirements.
